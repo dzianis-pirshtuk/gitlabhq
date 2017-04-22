@@ -452,6 +452,13 @@ Settings['satellites'] ||= Settingslogic.new({})
 Settings.satellites['path'] = Settings.absolute(Settings.satellites['path'] || "tmp/repo_satellites/")
 
 #
+# IPython notebook
+#
+Settings['ipython_notebook'] ||= Settingslogic.new({})
+Settings.ipython_notebook['render']      = true if Settings.ipython_notebook['render'].nil?
+Settings.ipython_notebook['nbconvert'] ||= 'ipython nbconvert --to html --FilesWriter.build_directory=%{build_dir} %{notebook}'
+
+#
 # Extra customization
 #
 Settings['extra'] ||= Settingslogic.new({})
